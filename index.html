@@ -3,331 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>N0tN0Or — Hijabi RTW | Worldwide Delivery</title>
+<title>N0tN0Or Admin Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Raleway:wght@200;300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* (CSS content unchanged, same as original – omitted for brevity) */
+/* (CSS remains same as original – omitted for brevity) */
 </style>
 </head>
-<body>
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<!-- ANNOUNCEMENT BAR -->
-<div class="ann-bar" id="annBar"></div>
-
-<!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20order" target="_blank" title="Chat on WhatsApp">💬</a>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mm-close" id="mmClose">✕</button>
-  <a href="index.html">Home</a>
-  <a href="index.html#collection-section">Collection</a>
-  <a href="order.html">How to Order</a>
-  <a href="sizing.html">Sizing Guide</a>
-  <a href="delivery.html">Delivery</a>
-  <a href="contact.html">Contact</a>
-  <a href="https://www.instagram.com/n0tn0or?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a>
-  <a href="login.html">Owner Login</a>
-</div>
-
-<!-- MAIN NAV -->
-<nav id="mainNav">
-  <a class="nav-logo" href="index.html">👑 N0tN0Or</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#collection-section">Collection</a></li>
-    <li><a href="order.html">How to Order</a></li>
-    <li><a href="sizing.html">Sizing</a></li>
-    <li><a href="delivery.html">Delivery</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://www.instagram.com/n0tn0or?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a></li>
-  </ul>
-  <div class="nav-right">
-    <select id="currencySwitcher" onchange="changeCurrency(this.value)" style="background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--gold); font-family:'Raleway',sans-serif; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; padding:6px; cursor:pointer; outline:none; transition: all .3s;">
-      <option value="NGN" style="background:var(--black);">NGN</option>
-      <option value="USD" style="background:var(--black);">USD</option>
-      <option value="GBP" style="background:var(--black);">GBP</option>
-      <option value="EUR" style="background:var(--black);">EUR</option>
-    </select>
-    <a class="nav-wa" href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20order" target="_blank">💬 Order Now</a>
-    <a class="nav-admin-btn" href="login.html">⚙ Owner</a>
-    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
+<body class="admin-page">
 <div id="main-content">
-<div class="page" id="page-home">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-big-n">N</div>
-    <div class="hero-content">
-      <div class="hero-badge" id="heroBadge"><span class="hero-badge-dot"></span>Hijabi RTW · Worldwide Delivery 📦</div>
-      <h1 class="hero-title" id="heroTitle">This isn't just<br>a <span class="gold">shopping</span><br><span class="italic outline">page.</span></h1>
-      <p class="hero-sub" id="heroSub">It's a space for modest fashion tips, styling ideas, and learning how to wear what you already have beautifully. Fashion is about confidence, creativity, and helping each other feel good.</p>
-      <div class="hero-actions">
-        <a id="heroBtn1" class="btn-gold" href="index.html#collection-section">✦ Explore Collection</a>
-        <a id="heroBtn2" class="btn-outline" href="order.html">How to Order</a>
-        <a id="heroBtn3" class="btn-rose" href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20order">💬 WhatsApp</a>
+<div class="page" id="page-admin">
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">N0tN0Or 👑<span>Owner Dashboard</span></div>
+      <div class="sidebar-nav">
+        <button class="sb-link active" data-panel="dash" onclick="showPanel('dash')"><span class="sb-icon">📊</span>Dashboard</button>
+        <button class="sb-link" data-panel="products" onclick="showPanel('products')"><span class="sb-icon">👗</span>Products</button>
+        <button class="sb-link" data-panel="lookbook" onclick="showPanel('lookbook')"><span class="sb-icon">📸</span>Lookbook</button>
+        <button class="sb-link" data-panel="orders" onclick="showPanel('orders')"><span class="sb-icon">📦</span>Orders</button>
+        <button class="sb-link" data-panel="testimonials" onclick="showPanel('testimonials')"><span class="sb-icon">💬</span>Testimonials</button>
+        <button class="sb-link" data-panel="announcements" onclick="showPanel('announcements')"><span class="sb-icon">📢</span>Announcements</button>
+        <button class="sb-link" data-panel="settings" onclick="showPanel('settings')"><span class="sb-icon">⚙️</span>Settings</button>
       </div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-val">15.5K</div><div class="stat-lbl">Followers</div></div>
-      <div class="stat"><div class="stat-val">41+</div><div class="stat-lbl">Posts</div></div>
-      <div class="stat"><div class="stat-val">🌍</div><div class="stat-lbl">Worldwide</div></div>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee"><div class="marquee-track" id="marqueeTrack">
-    <span class="marquee-item">Hijabi RTW <span>✦</span></span>
-    <span class="marquee-item">Worldwide Delivery <span>✦</span></span>
-    <span class="marquee-item">Modest Fashion <span>✦</span></span>
-    <span class="marquee-item">Custom Sizing <span>✦</span></span>
-    <span class="marquee-item">N0tN0Or <span>✦</span></span>
-    <span class="marquee-item">Designed to Shine <span>✦</span></span>
-    <span class="marquee-item">Send Your Fabrics <span>✦</span></span>
-    <span class="marquee-item">Soft Luxury <span>✦</span></span>
-    <span class="marquee-item">Hijabi RTW <span>✦</span></span>
-    <span class="marquee-item">Worldwide Delivery <span>✦</span></span>
-    <span class="marquee-item">Modest Fashion <span>✦</span></span>
-    <span class="marquee-item">Custom Sizing <span>✦</span></span>
-    <span class="marquee-item">N0tN0Or <span>✦</span></span>
-    <span class="marquee-item">Designed to Shine <span>✦</span></span>
-    <span class="marquee-item">Send Your Fabrics <span>✦</span></span>
-    <span class="marquee-item">Soft Luxury <span>✦</span></span>
-  </div></div>
-
-  <!-- ABOUT -->
-  <section class="about" id="about-section">
-    <div class="about-vis">
-      <div class="about-glow"></div>
-      <div class="about-big-logo">N</div>
-      <div class="about-card">
-        <p class="about-card-q" id="aboutQuote">"Fashion isn't only about clothes — it's about confidence, creativity, and helping each other feel good in what we wear."</p>
-        <div class="about-card-attr" id="aboutAuthor">— N0tN0Or · @not(noor) 👑</div>
+      <div class="sidebar-footer">
+        <button class="sb-logout" onclick="doLogout()">← Logout</button>
       </div>
-    </div>
-    <div class="about-content">
-      <span class="s-label reveal" id="aboutLabel">The Brand</span>
-      <h2 class="s-title reveal d1" id="aboutTitle">More than a<br><span class="italic">clothing brand.</span></h2>
-      <div class="deco-line reveal d2"></div>
-      <p class="s-body reveal d2" id="aboutBody">N0tN0Or is a Hijabi RTW brand built for the confident, modern Muslim woman. We specialise in beautifully crafted abayas, kaftans and modest wear — with worldwide delivery and the option to send in your own fabrics.</p>
-      <div class="about-pills reveal d3" id="aboutPills">
-        <span class="pill">Hijabi RTW</span><span class="pill">Modest Fashion</span><span class="pill">Custom Sizing</span>
-        <span class="pill">Worldwide Delivery 📦</span><span class="pill">Send Your Fabrics</span><span class="pill">Eid Bookings</span>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-mobile-nav">
+        <label for="adminPanelSelect">Menu</label>
+        <select id="adminPanelSelect" onchange="showPanel(this.value)">
+          <option value="dash">Dashboard</option>
+          <option value="products">Products</option>
+          <option value="orders">Orders</option>
+          <option value="lookbook">Lookbook</option>
+          <option value="testimonials">Testimonials</option>
+          <option value="announcements">Announcements</option>
+          <option value="settings">Settings</option>
+        </select>
       </div>
-    </div>
-  </section>
 
-  <!-- COLLECTION -->
-  <section class="section" id="collection-section" style="background:var(--black);">
-    <div class="coll-header">
-      <div><span class="s-label reveal">The Collection</span><h2 class="s-title reveal d1">Designed to <span class="italic">Shine.</span></h2></div>
-      <p class="s-body reveal" style="max-width:340px;text-align:right;margin:0;">Soft luxury. Modest elegance. Every piece crafted for the woman who moves with grace.</p>
-    </div>
-    <div class="product-grid" id="publicProductGrid">
-      <!-- Rendered by JS -->
-    </div>
-    <div style="text-align:center;margin-top:52px;" class="reveal">
-      <a class="btn-gold" href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20browse%20the%20full%20collection" target="_blank">✦ See Full Collection on WhatsApp</a>
-    </div>
-  </section>
-
-  <!-- HOW TO ORDER TEASER -->
-  <section class="section how" id="how-section">
-    <div class="how-inner">
-      <div>
-        <span class="s-label reveal">Simple Process</span>
-        <h2 class="s-title reveal d1">How to <span class="italic">Order.</span></h2>
-        <div class="deco-line reveal d2"></div>
-        <p class="s-body reveal d2">Quality, perfection, and timely delivery. Slots are very limited.</p>
-        <div class="how-steps" style="margin-top:44px;">
-          <div class="how-step reveal d1"><div class="step-num">01</div><div><div class="step-title">Select Your Product</div><div class="step-desc">Browse our collection and pick your piece or request a custom design.</div></div></div>
-          <div class="how-step reveal d2"><div class="step-num">02</div><div><div class="step-title">Send a DM or WhatsApp</div><div class="step-desc">Message us via Instagram DM or WhatsApp with your selected piece.</div></div></div>
-          <div class="how-step reveal d3"><div class="step-num">03</div><div><div class="step-title">Confirm Your Size</div><div class="step-desc">Share your measurements or send in your own fabrics.</div></div></div>
-          <div class="how-step reveal d4"><div class="step-num">04</div><div><div class="step-title">Pay & Confirm</div><div class="step-desc">Payments must be made on time to secure your slot.</div></div></div>
+      <!-- DASHBOARD PANEL -->
+      <div class="admin-panel active" id="panel-dash">
+        <div class="admin-topbar">
+          <div><div class="admin-page-title">Dashboard</div><div class="admin-page-sub">Welcome back, Noor 👑</div></div>
+          <a class="btn-outline" href="index.html" style="font-size:.63rem;padding:10px 22px;">View Live Site →</a>
         </div>
-        <div style="margin-top:32px;" class="reveal d5">
-          <a class="btn-outline" href="order.html">Full Order Guide →</a>
+        <div class="dash-stats" id="dashStats"></div>
+        <div class="dash-recent">
+          <div class="dash-card">
+            <div class="dash-card-title">Recent Activity</div>
+            <div id="activityFeed"></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-title">Quick Actions</div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+              <button class="btn-gold" onclick="showPanel('products');openAddProduct()" style="font-size:.65rem;padding:12px 20px;justify-content:center;">+ Add New Product</button>
+              <button class="btn-outline" onclick="showPanel('orders')" style="font-size:.65rem;padding:11px 20px;justify-content:center;">📦 View Orders</button>
+              <a class="btn-rose" href="https://wa.me/2348020965505" target="_blank" style="font-size:.65rem;padding:12px 20px;justify-content:center;">💬 Open WhatsApp</a>
+              <a class="btn-outline" href="https://www.instagram.com/n0tn0or?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="font-size:.65rem;padding:11px 20px;justify-content:center;">📸 Open Instagram</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="how-cta-box reveal d2">
-        <div class="cta-title">Ready to order your dream piece?</div>
-        <p class="cta-body">📌 Book your Eid outfits<br>📌 Submit your fabrics<br>📌 Discuss designs and pricing<br><br><em style="color:rgba(250,248,245,.3);font-size:.78rem;">You may send in your fabrics or request design ideas directly.</em></p>
-        <a class="how-wa-btn" href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20order" target="_blank">💬 Hi, I want to order</a>
-        <div class="how-or">or</div>
-        <a class="how-ig-btn" href="https://www.instagram.com/n0tn0or?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">📸 DM on Instagram @not(noor)</a>
+
+      <!-- PRODUCTS PANEL -->
+      <div class="admin-panel" id="panel-products">
+        <div class="admin-topbar">
+          <div><div class="admin-page-title">Products</div><div class="admin-page-sub">Manage your collection</div></div>
+          <button class="btn-gold" onclick="openAddProduct()" style="font-size:.65rem;padding:12px 24px;">+ Add Product</button>
+        </div>
+        <div class="prod-admin-toolbar">
+          <input class="search-input" placeholder="Search products..." oninput="filterProducts(this.value)" id="prodSearch">
+          <select class="filter-sel" onchange="filterProductsByStatus(this.value)">
+            <option value="all">All Products</option>
+            <option value="active">Active</option>
+            <option value="sold">Sold Out</option>
+          </select>
+        </div>
+        <div class="admin-prod-grid" id="adminProductGrid"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- PHILOSOPHY -->
-  <section class="philosophy section">
-    <div class="phil-bg-text">Modest</div>
-    <div class="phil-inner">
-      <span class="s-label reveal" style="display:block;text-align:center;">Our Philosophy</span>
-      <h2 class="s-title reveal d1" style="text-align:center;">More than <span class="italic">clothes.</span></h2>
-      <div class="deco-line center reveal d2"></div>
-      <p class="phil-quote reveal d2">"Fashion isn't only about clothes — it's about <span class="hl">confidence, creativity,</span> and helping each other feel <span class="hl">beautifully themselves.</span>"</p>
-      <div class="phil-points">
-        <div class="phil-pt reveal d1"><div class="phil-pt-icon">👑</div><div class="phil-pt-title">Confidence First</div><p class="phil-pt-body">We design pieces that make you stand tall. Every stitch celebrates the woman wearing it.</p></div>
-        <div class="phil-pt reveal d2"><div class="phil-pt-icon">🌿</div><div class="phil-pt-title">Modesty Elevated</div><p class="phil-pt-body">Modesty is power. We create modest looks that are unapologetically beautiful and luxury-forward.</p></div>
-        <div class="phil-pt reveal d3"><div class="phil-pt-icon">✦</div><div class="phil-pt-title">Styling Community</div><p class="phil-pt-body">We share tips and styling inspo so every hijabi woman feels seen, celebrated, and stylish.</p></div>
+      <!-- LOOKBOOK PANEL -->
+      <div class="admin-panel" id="panel-lookbook">
+        <div class="admin-topbar">
+          <div><div class="admin-page-title">Lookbook</div><div class="admin-page-sub">Manage the homepage lookbook</div></div>
+          <button class="btn-gold" onclick="openAddLookbookItem()" style="font-size:.65rem;padding:12px 24px;">+ Add Item</button>
+        </div>
+        <div class="admin-prod-grid" id="adminLookbookGrid"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- LOOKBOOK -->
-  <section class="section" id="lookbook-section" style="background:var(--black);">
-    <span class="s-label reveal">Lookbook</span>
-    <h2 class="s-title reveal d1">Soft tones. <span class="italic rose">Gentle textures.</span></h2>
-    <div class="deco-line rose reveal d2"></div>
-    <div class="lb-grid" id="lookbookGrid"></div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section" style="background:var(--near-black);">
-    <div style="text-align:center;">
-      <span class="s-label reveal" style="display:block;">Community Love</span>
-      <h2 class="s-title reveal d1" style="text-align:center;">What our <span class="italic">sisters</span> say.</h2>
-      <div class="deco-line center reveal d2"></div>
-    </div>
-    <div class="testi-grid" id="testimonialGrid"></div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" style="background:var(--near-black);">
-    <div style="max-width:800px; margin:0 auto;">
-      <span class="s-label reveal" style="display:block;text-align:center;">Got Questions?</span>
-      <h2 class="s-title reveal d1" style="text-align:center;">Frequently Asked <span class="italic">Questions.</span></h2>
-      <div class="deco-line center reveal d2"></div>
-      <div class="faq-container" style="margin-top: 40px;">
-        <style>
-          .faq-item { border-bottom: 1px solid rgba(201,168,76,.1); padding: 20px 0; }
-          .faq-q { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-          .faq-q:hover { color: var(--gold-light); }
-          .faq-a { font-size: 0.85rem; color: rgba(250,248,245,.6); line-height: 1.6; margin-top: 10px; display: none; }
-          .faq-item.active .faq-a { display: block; animation: fadeIn 0.3s ease; }
-          .faq-icon { font-size: 1.2rem; transition: transform 0.3s; }
-          .faq-item.active .faq-icon { transform: rotate(45deg); }
-        </style>
-        <div class="faq-item reveal d1" onclick="this.classList.toggle('active')">
-          <div class="faq-q">What happens if I send my own fabric? <span class="faq-icon">+</span></div>
-          <div class="faq-a">If you send your own fabric, we will discuss the best design that suits the material. The cost will only cover tailoring and additional details (like feathers or stones).</div>
+      <!-- ORDERS PANEL -->
+      <div class="admin-panel" id="panel-orders">
+        <div class="admin-topbar">
+          <div><div class="admin-page-title">Orders</div><div class="admin-page-sub">Track and manage customer orders</div></div>
+          <button class="btn-gold" onclick="openAddOrder()" style="font-size:.65rem;padding:12px 24px;">+ Add Order</button>
         </div>
-        <div class="faq-item reveal d2" onclick="this.classList.toggle('active')">
-          <div class="faq-q">Do you accept returns or exchanges? <span class="faq-icon">+</span></div>
-          <div class="faq-a">Because all our pieces are made-to-order and custom-fitted, we do not accept returns. However, if there is a fitting issue on our end, we will alter it for free.</div>
-        </div>
-        <div class="faq-item reveal d3" onclick="this.classList.toggle('active')">
-          <div class="faq-q">How long does custom delivery take? <span class="faq-icon">+</span></div>
-          <div class="faq-a">Standard production time is 7-14 business days. Delivery time depends on your country (typically 3-7 days for Nigeria, and 7-14 days internationally).</div>
-        </div>
-        <div class="faq-item reveal d4" onclick="this.classList.toggle('active')">
-          <div class="faq-q">How do I track my international order? <span class="faq-icon">+</span></div>
-          <div class="faq-a">Once your order is shipped, we will send you a tracking number via WhatsApp/Email so you can monitor your package.</div>
+        <div style="overflow-x:auto;">
+          <table class="orders-table" id="ordersTable">
+            <thead><tr><th>Order #</th><th>Customer</th><th>Product</th><th>Country</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody id="ordersTbody"></tbody>
+          </table>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- NEWSLETTER -->
-  <section class="section" style="background: linear-gradient(160deg, #0a0a0a, #1a120c); text-align: center; border-top: 1px solid rgba(201,168,76,.1);">
-    <div style="max-width: 600px; margin: 0 auto;">
-      <h2 class="s-title reveal">Join the <span class="italic">Sisterhood.</span></h2>
-      <p class="s-body reveal d1" style="margin: 20px auto;">Subscribe to receive early access to our Eid drops, exclusive styling tips, and special offers.</p>
-      <div class="reveal d2" style="display: flex; gap: 10px; margin-top: 30px; justify-content: center; flex-wrap: wrap;">
-        <input type="email" id="newsletterEmail" placeholder="Enter your email address" style="flex: 1; min-width: 250px; background: rgba(201,168,76,.04); border: 1px solid rgba(201,168,76,.15); color: var(--white); padding: 15px 20px; font-family: 'Raleway', sans-serif; font-size: 0.9rem; outline: none;">
-        <button class="btn-gold" onclick="subscribeNewsletter()" style="border: none; cursor: pointer;">Subscribe ✦</button>
+      <!-- TESTIMONIALS PANEL -->
+      <div class="admin-panel" id="panel-testimonials">
+        <div class="admin-topbar">
+          <div><div class="admin-page-title">Testimonials</div><div class="admin-page-sub">Manage customer reviews shown on the site</div></div>
+          <button class="btn-gold" onclick="openAddTestimonial()" style="font-size:.65rem;padding:12px 24px;">+ Add Review</button>
+        </div>
+        <div class="admin-prod-grid" id="adminTestiGrid"></div>
       </div>
-      <div id="newsletterSuccess" style="display: none; color: var(--gold); font-size: 0.8rem; margin-top: 15px; letter-spacing: .1em;">Thank you for joining our community! 🤍</div>
-    </div>
-  </section>
 
-  <!-- INSTAGRAM CTA -->
-  <section class="igcta section">
-    <div class="igcta-glow"></div>
-    <div class="igcta-inner">
-      <span class="s-label reveal" style="display:block;text-align:center;">Stay Connected</span>
-      <h2 class="igcta-title reveal d1">Follow the <span class="italic">journey</span><br>on Instagram.</h2>
-      <p class="igcta-body reveal d2">Modest fashion tips. Styling ideas. New arrivals. Behind the scenes. A community of women who celebrate beauty and culture.</p>
-      <div class="reveal d3"><a class="igcta-btn" href="https://www.instagram.com/n0tn0or?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">📸 Follow @n0tn0or on Instagram</a></div>
-      <div class="ig-handle reveal d4">@n0tn0or · 15.4K sisters and counting 👑</div>
-    </div>
-  </section>
-
-  <!-- FOOTER (only one) -->
-  <footer>
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-logo">N0tN0Or 👑</div>
-        <p class="footer-tagline">"Fashion isn't only about clothes — it's about confidence, creativity, and helping each other feel good in what we wear."</p>
-        <div class="footer-socials">
-          <a class="footer-social" href="https://www.instagram.com/n0tn0or?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">📸</a>
-          <a class="footer-social" href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20order" target="_blank">💬</a>
+      <!-- ANNOUNCEMENTS PANEL -->
+      <div class="admin-panel" id="panel-announcements">
+        <div class="admin-topbar">
+          <div><div class="admin-page-title">Announcements</div><div class="admin-page-sub">Manage your site-wide announcement bar</div></div>
+        </div>
+        <div class="settings-section" style="max-width:700px;">
+          <div class="settings-title">Announcement Bar</div>
+          <div class="settings-sub">Show a message at the top of the website (e.g. Eid bookings open, limited slots, etc.)</div>
+          <div class="announce-bar-toggle">
+            <label class="toggle-switch"><input type="checkbox" id="annToggle" onchange="saveAnnouncement()"><span class="toggle-slider"></span></label>
+            <span style="font-size:.78rem;color:rgba(250,248,245,.55);">Enable announcement bar</span>
+          </div>
+          <input class="announce-input" id="annText" placeholder="e.g. 🌙 Eid bookings now open — slots are limited!" oninput="saveAnnouncement()">
+          <div style="margin-top:16px;">
+            <label style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;">Background Color</label>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;" id="annColorPicker">
+              <div onclick="setAnnColor('#c9a84c')" style="width:28px;height:28px;background:#c9a84c;border-radius:50%;border:2px solid transparent;" data-color="#c9a84c"></div>
+              <div onclick="setAnnColor('#d4697a')" style="width:28px;height:28px;background:#d4697a;border-radius:50%;border:2px solid transparent;" data-color="#d4697a"></div>
+              <div onclick="setAnnColor('#25d366')" style="width:28px;height:28px;background:#25d366;border-radius:50%;border:2px solid transparent;" data-color="#25d366"></div>
+              <div onclick="setAnnColor('#111')" style="width:28px;height:28px;background:#111;border-radius:50%;border:2px solid rgba(255,255,255,.2);" data-color="#111"></div>
+            </div>
+          </div>
+          <div class="save-msg" id="annSaveMsg">✓ Saved successfully</div>
         </div>
       </div>
-      <div>
-        <div class="footer-col-title">Explore</div>
-        <ul class="footer-links">
-          <li><a href="index.html#collection-section">Collection</a></li>
-          <li><a href="index.html#lookbook-section">Lookbook</a></li>
-          <li><a href="order.html">How to Order</a></li>
-          <li><a href="contact.html">About</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Order</div>
-        <ul class="footer-links">
-          <li><a href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20order" target="_blank">WhatsApp Order</a></li>
-          <li><a href="https://www.instagram.com/n0tn0or?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram DM</a></li>
-          <li><a href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20book%20an%20Eid%20outfit" target="_blank">Eid Bookings</a></li>
-          <li><a href="https://wa.me/2348020965505?text=Hi%20I%20want%20to%20discuss%20a%20custom%20design" target="_blank">Custom Design</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Info</div>
-        <ul class="footer-links">
-          <li><a href="sizing.html">Sizing Guide</a></li>
-          <li><a href="delivery.html">Worldwide Delivery</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 N0tN0Or. All rights reserved. · Hijabi RTW · Worldwide Delivery</span>
-      <span class="footer-copy">@n0tn0or on Instagram</span>
-    </div>
-  </footer>
 
-</div>
-</div>
-
-<!-- Product Detail Modal -->
-<div class="modal-overlay" id="productDetailModal">
-  <div class="modal" style="max-width: 800px;">
-    <button class="modal-close" onclick="closeModal('productDetailModal')">✕</button>
-    <div class="modal-title" id="productDetailTitle"></div>
-    <div class="modal-sub" id="productDetailSub"></div>
-    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
-      <div id="productDetailImg" style="flex: 1; min-width: 200px; aspect-ratio: 1; background: rgba(201,168,76,.05); border-radius: 8px;"></div>
-      <div style="flex: 2;">
-        <p id="productDetailDesc" style="margin-bottom: 16px;"></p>
-        <div><strong style="color: var(--gold);">Details:</strong> <span id="productDetailDetails"></span></div>
-        <div style="margin-top: 16px;"><strong style="color: var(--gold);">Sizes:</strong> <span id="productDetailSizes"></span></div>
-        <a id="productDetailOrder" class="btn-gold" href="#" target="_blank" style="margin-top: 24px; display: inline-block;">Order via WhatsApp →</a>
+      <!-- SETTINGS PANEL -->
+      <div class="admin-panel" id="panel-settings">
+        <div class="admin-topbar">
+          <div><div class="admin-page-title">Settings</div><div class="admin-page-sub">Manage your website and account</div></div>
+        </div>
+        <div class="settings-grid">
+          <div class="settings-section">
+            <div class="settings-title">Change Password</div>
+            <div class="settings-sub">Update your owner dashboard password</div>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div class="form-group"><label>Current Password</label><input type="password" id="pwCurrent" placeholder="Current password"></div>
+              <div class="form-group"><label>New Password</label><input type="password" id="pwNew" placeholder="New password"></div>
+              <div class="form-group"><label>Confirm New Password</label><input type="password" id="pwConfirm" placeholder="Confirm new password"></div>
+              <button class="settings-save" onclick="changePassword()">Update Password</button>
+              <div class="save-msg" id="pwSaveMsg"></div>
+            </div>
+          </div>
+          <div class="settings-section">
+            <div class="settings-title">Site Settings</div>
+            <div class="settings-sub">Control what appears on your website</div>
+            <div class="toggle-row"><div><div class="toggle-label">Show Lookbook Section</div><div class="toggle-desc">Display lookbook on homepage</div></div><label class="toggle-switch"><input type="checkbox" id="tog-lookbook" checked onchange="saveSettings()"><span class="toggle-slider"></span></label></div>
+            <div class="toggle-row"><div><div class="toggle-label">Show Testimonials</div><div class="toggle-desc">Display customer reviews</div></div><label class="toggle-switch"><input type="checkbox" id="tog-testi" checked onchange="saveSettings()"><span class="toggle-slider"></span></label></div>
+            <div class="toggle-row"><div><div class="toggle-label">Show WhatsApp Float</div><div class="toggle-desc">Floating WhatsApp button</div></div><label class="toggle-switch"><input type="checkbox" id="tog-wa" checked onchange="saveSettings()"><span class="toggle-slider"></span></label></div>
+            <div class="toggle-row"><div><div class="toggle-label">Eid Bookings Open</div><div class="toggle-desc">Show Eid booking banner</div></div><label class="toggle-switch"><input type="checkbox" id="tog-eid" onchange="saveSettings()"><span class="toggle-slider"></span></label></div>
+            <div class="save-msg" id="settingsSaveMsg">✓ Settings saved</div>
+          </div>
+          <div class="settings-section full">
+            <div class="settings-title">Danger Zone</div>
+            <div class="settings-sub">Irreversible actions — proceed with caution</div>
+            <button class="settings-danger-btn" onclick="if(confirm('Clear all products? This cannot be undone.')){clearAllProducts();}">🗑 Clear All Products</button>
+            <button class="settings-danger-btn" onclick="if(confirm('Clear all orders?')){clearAllOrders();}">🗑 Clear All Orders</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 </div>
+</div>
 
-<!-- ADD/EDIT PRODUCT MODAL (needed for admin, but harmless) -->
+<!-- Product Modal -->
 <div class="modal-overlay" id="productModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('productModal')">✕</button>
@@ -341,23 +195,13 @@
         <div class="form-group"><label>Price</label><input type="text" id="pPrice" placeholder="e.g. Contact for pricing"></div>
       </div>
       <div class="form-group"><label>Description</label><textarea id="pDesc" placeholder="Describe this piece..."></textarea></div>
-      <div class="form-group"><label>Details (shown on product page)</label><textarea id="pDetails" placeholder="Add more details, measurements, care instructions, etc."></textarea></div>
-      <div class="form-group">
-        <label>Badge</label>
-        <select id="pBadge"><option value="">None</option><option value="new">New</option><option value="bestseller">Bestseller</option><option value="limited">Limited</option><option value="ramadan">Ramadan</option><option value="eid">Eid Special</option><option value="sold">Sold Out</option></select>
-      </div>
-      <div class="form-group">
-        <label>Available Sizes</label>
-        <div class="size-check-row" id="sizeChips">
-          <div class="size-chip" onclick="toggleSizeChip(this)" data-val="XS">XS</div>
-          <div class="size-chip" onclick="toggleSizeChip(this)" data-val="S">S</div>
-          <div class="size-chip" onclick="toggleSizeChip(this)" data-val="M">M</div>
-          <div class="size-chip" onclick="toggleSizeChip(this)" data-val="L">L</div>
-          <div class="size-chip" onclick="toggleSizeChip(this)" data-val="XL">XL</div>
-          <div class="size-chip" onclick="toggleSizeChip(this)" data-val="XXL">XXL</div>
-          <div class="size-chip" onclick="toggleSizeChip(this)" data-val="Custom">Custom</div>
-        </div>
-      </div>
+      <div class="form-group"><label>Details</label><textarea id="pDetails" placeholder="Add more details, measurements, care instructions, etc."></textarea></div>
+      <div class="form-group"><label>Badge</label><select id="pBadge"><option value="">None</option><option value="new">New</option><option value="bestseller">Bestseller</option><option value="limited">Limited</option><option value="ramadan">Ramadan</option><option value="eid">Eid Special</option><option value="sold">Sold Out</option></select></div>
+      <div class="form-group"><label>Status</label><select id="pStatus"><option value="active">Active</option><option value="hidden">Hidden</option></select></div>
+      <div class="form-group"><label>WhatsApp Message</label><input type="text" id="pWAMsg" placeholder="Custom WhatsApp message"></div>
+      <div class="form-group"><label>Product Image</label><div class="img-upload-area"><div class="img-upload-icon">📸</div><div class="img-upload-text">Click or drag to upload</div><input type="file" accept="image/*" onchange="handleImageUpload(this)"></div><img class="img-preview" id="imgPreview"></div>
+      <div class="form-group"><label>Color Theme</label><div class="color-swatch-row" id="colorSwatches"><div class="color-chip g1" onclick="selectColor(this,'g1')" data-val="g1"></div><div class="color-chip g2" onclick="selectColor(this,'g2')" data-val="g2"></div><div class="color-chip g3" onclick="selectColor(this,'g3')" data-val="g3"></div><div class="color-chip g4" onclick="selectColor(this,'g4')" data-val="g4"></div><div class="color-chip g5" onclick="selectColor(this,'g5')" data-val="g5"></div><div class="color-chip g6" onclick="selectColor(this,'g6')" data-val="g6"></div></div></div>
+      <div class="form-group"><label>Available Sizes</label><div class="size-check-row" id="sizeChips"><div class="size-chip" onclick="toggleSizeChip(this)" data-val="XS">XS</div><div class="size-chip" onclick="toggleSizeChip(this)" data-val="S">S</div><div class="size-chip" onclick="toggleSizeChip(this)" data-val="M">M</div><div class="size-chip" onclick="toggleSizeChip(this)" data-val="L">L</div><div class="size-chip" onclick="toggleSizeChip(this)" data-val="XL">XL</div><div class="size-chip" onclick="toggleSizeChip(this)" data-val="XXL">XXL</div><div class="size-chip" onclick="toggleSizeChip(this)" data-val="Custom">Custom</div></div></div>
     </div>
     <div class="modal-actions">
       <button class="modal-save" onclick="saveProduct()">Save Product</button>
@@ -366,7 +210,68 @@
   </div>
 </div>
 
-<script>window.CURRENT_PAGE = "home";</script>
+<!-- Lookbook Modal -->
+<div class="modal-overlay" id="lookbookModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('lookbookModal')">✕</button>
+    <div class="modal-title" id="lookbookModalTitle">Add Lookbook Item</div>
+    <div class="modal-sub">Add a new image to the lookbook</div>
+    <input type="hidden" id="editLookbookId">
+    <div class="modal-form">
+      <div class="form-group"><label>Caption</label><input type="text" id="lbTitle" placeholder="e.g. The Rose Abaya"></div>
+      <div class="form-group"><label>Image</label><div class="img-upload-area"><div class="img-upload-icon">📸</div><div class="img-upload-text">Click or drag to upload</div><input type="file" id="lbImgFileInput" accept="image/*" onchange="handleLookbookUpload(this)"></div><img class="img-preview" id="lbImgPreview"></div>
+      <div class="form-group"><label>Color Theme</label><div class="color-swatch-row" id="lbColorSwatches"><div class="color-chip g1" onclick="selectLbColor(this,'g1')" data-val="g1"></div><div class="color-chip g2" onclick="selectLbColor(this,'g2')" data-val="g2"></div><div class="color-chip g3" onclick="selectLbColor(this,'g3')" data-val="g3"></div><div class="color-chip g4" onclick="selectLbColor(this,'g4')" data-val="g4"></div><div class="color-chip g5" onclick="selectLbColor(this,'g5')" data-val="g5"></div><div class="color-chip g6" onclick="selectLbColor(this,'g6')" data-val="g6"></div></div></div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-save" onclick="saveLookbookItem()">Save Item</button>
+      <button class="modal-cancel" onclick="closeModal('lookbookModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Order Modal -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('orderModal')">✕</button>
+    <div class="modal-title">Manage Order</div>
+    <div class="modal-sub">Update or add an order</div>
+    <input type="hidden" id="editOrderId">
+    <div class="modal-form">
+      <div class="form-group"><label>Customer Name *</label><input type="text" id="oName" placeholder="e.g. Fatimah Ahmed"></div>
+      <div class="form-group"><label>Product</label><input type="text" id="oProd" placeholder="e.g. The Rose Abaya"></div>
+      <div class="form-group"><label>Country</label><input type="text" id="oCountry" placeholder="e.g. Nigeria, UK, USA"></div>
+      <div class="form-group"><label>Contact (WhatsApp/Email)</label><input type="text" id="oContact" placeholder="+234..."></div>
+      <div class="form-group"><label>Notes</label><textarea id="oNotes" placeholder="Size, custom requests, etc."></textarea></div>
+      <div class="form-group"><label>Status</label><select id="oStatus"><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="shipped">Shipped</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select></div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-save" onclick="saveOrder()">Save Order</button>
+      <button class="modal-cancel" onclick="closeModal('orderModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonial Modal -->
+<div class="modal-overlay" id="testiModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('testiModal')">✕</button>
+    <div class="modal-title">Manage Review</div>
+    <div class="modal-sub">Add or edit a customer review</div>
+    <input type="hidden" id="editTestiId">
+    <div class="modal-form">
+      <div class="form-group"><label>Name *</label><input type="text" id="tName" placeholder="e.g. Fatimah A."></div>
+      <div class="form-group"><label>Location</label><input type="text" id="tLoc" placeholder="e.g. London, UK 🇬🇧"></div>
+      <div class="form-group"><label>Review Text *</label><textarea id="tText" rows="3" placeholder="What did they say?"></textarea></div>
+      <div class="form-group"><label>Stars</label><select id="tStars"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option></select></div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-save" onclick="saveTestimonial()">Save Review</button>
+      <button class="modal-cancel" onclick="closeModal('testiModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>window.CURRENT_PAGE = "admin";</script>
 <script src="main.js"></script>
 </body>
 </html>
