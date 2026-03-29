@@ -4,27 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>N0tN0Or Admin Login</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Raleway:wght@200;300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-/* (CSS same as original – omitted) */
-</style>
 </head>
 <body class="login-page">
-<div id="main-content">
-<div class="page" id="page-login">
-  <div class="login-box">
-    <div class="login-logo">N0tN0Or 👑</div>
-    <div class="login-sub">Owner Dashboard · Secure Login</div>
-    <div class="login-form">
-      <div><label>Username</label><input type="text" id="loginUser" placeholder="Enter username" autocomplete="username"></div>
-      <div><label>Password</label><input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
-      <div class="login-err" id="loginErr">Incorrect username or password.</div>
-      <button class="login-btn" onclick="doLogin()">Access Dashboard →</button>
-    </div>
-    <a class="login-back" href="index.html">← Back to Website</a>
+<div class="login-box">
+  <div class="login-logo">N0tN0Or 👑</div>
+  <div class="login-sub">Owner Dashboard · Secure Login</div>
+  <div class="login-form">
+    <div><label>Username</label><input type="text" id="loginUser" placeholder="Enter username" autocomplete="username"></div>
+    <div><label>Password</label><input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="login-err" id="loginErr">Incorrect username or password.</div>
+    <button class="login-btn" onclick="doLogin()">Access Dashboard →</button>
   </div>
-</div>
+  <a class="login-back" href="index.html">← Back to Website</a>
 </div>
 <script>window.CURRENT_PAGE = "login";</script>
 <script src="main.js"></script>
